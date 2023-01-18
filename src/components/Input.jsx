@@ -1,7 +1,7 @@
-const Input = ({ placeholder }) => {
+const Input = ({ placeholder, type }) => {
   return (
     <div className="input-item">
-      <input type="text" required />
+      <input type={type} required />
       <span>{placeholder}</span>
     </div>
   );

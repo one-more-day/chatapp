@@ -1,0 +1,11 @@
+.messagebox{
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    .content{
+        height: 32px;
+        width: 100px;
+    }
+}
