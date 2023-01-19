@@ -6,8 +6,10 @@ import { message } from "@/global/MessageBox";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useEffect, useRef, useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
   const [isAvatar, setIsAvatar] = useState(false);
+  const navigate = useNavigate();
   const onChange = () => {
     setIsAvatar(true);
   };
@@ -41,6 +43,8 @@ const Register = () => {
                 email,
                 photoURL: downloadURL,
               });
+              await setDoc(doc(db, "userChats", res.user.uid), {});
+              navigate("/");
             } catch (err) {
               console.log(err);
             }
