@@ -13,7 +13,7 @@ function App() {
     return children;
   };
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/chatapp">
       <Routes>
         <Route path="/">
           <Route
