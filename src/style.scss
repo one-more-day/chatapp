@@ -236,6 +236,8 @@ body{
               p {
                 font-size: 14px;
                 color: lightgray;
+                white-space: nowrap;
+                overflow: hidden;
               }
         }
     }

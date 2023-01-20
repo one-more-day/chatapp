@@ -8,7 +8,6 @@ const Chats = () => {
   const { currentUser } = useContext(AuthContext);
   const { data, dispatch } = useContext(ChatContext);
   useEffect(() => {
-    console.log(chats, currentUser.uid);
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
         setChats(doc.data());
@@ -28,7 +27,6 @@ const Chats = () => {
         Object.entries(chats)
           ?.sort((a, b) => b[1].date - a[1].date)
           .map((chat) => {
-            console.log(chat);
             return (
               <div
                 className="userChat"

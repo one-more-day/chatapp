@@ -27,11 +27,10 @@ const Register = () => {
 
       uploadTask.on(
         (error) => {
-          console.log(error);
+          message.info(error.message);
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-            console.log(downloadURL);
             try {
               await updateProfile(res.user, {
                 displayName,
@@ -46,7 +45,7 @@ const Register = () => {
               await setDoc(doc(db, "userChats", res.user.uid), {});
               navigate("/");
             } catch (err) {
-              console.log(err);
+              message.info(err.message);
             }
           });
         }
